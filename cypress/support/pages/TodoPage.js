@@ -15,7 +15,7 @@ class TodoPage {
     }
   
     deleteTodo(taskName) {
-      this.elements.todoItemLabel(taskName).click();
+      this.elements.todoItemLabel(taskName).hover();
       this.elements.deleteButton(taskName).click();
     }
   
