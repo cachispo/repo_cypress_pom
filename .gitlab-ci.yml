@@ -15,6 +15,7 @@ install_dependencies:
     paths:
       - node_modules/
       - .cache/Cypress
+      - cypress/support/
     policy: push
 
 run_cypress_tests:
@@ -31,4 +32,5 @@ run_cypress_tests:
     paths:
       - node_modules/
       - .cache/Cypress
+      - cypress/support/
     policy: pull
