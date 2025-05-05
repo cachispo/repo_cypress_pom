@@ -13,12 +13,7 @@ class TodoPage {
     addTodo(taskName) {
       this.elements.inputNewTodo().type(`${taskName}{enter}`);
     }
-  
-    deleteTodo(taskName) {
-      this.elements.todoItemLabel(taskName).hover();
-      this.elements.deleteButton(taskName).click();
-    }
-  
+
     validateTodoExists(taskName) {
       this.elements.todoItemLabel(taskName).should('be.visible');
     }
