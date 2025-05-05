@@ -1,0 +1,34 @@
+stages:
+  - install
+  - test
+
+variables:
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/.cache/Cypress"
+
+install_dependencies:
+  stage: install
+  image: cypress/base:16
+  script:
+    - npm ci
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - .cache/Cypress
+    policy: push
+
+run_cypress_tests:
+  stage: test
+  image: cypress/base:16
+  script:
+    - npm run test:cypress
+  artifacts:
+    paths:
+      - cypress/videos/*
+      - cypress/screenshots/*
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - .cache/Cypress
+    policy: pull
