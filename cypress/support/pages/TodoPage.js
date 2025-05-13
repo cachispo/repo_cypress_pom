@@ -16,7 +16,7 @@ class TodoPage {
   
     deleteTodo(taskName) {
       this.elements.todoItemLabel(taskName).click();
-      this.elements.deleteButton(taskName).click();
+      this.elements.deleteButton(taskName).click({force: true});
     }
   
     validateTodoExists(taskName) {
