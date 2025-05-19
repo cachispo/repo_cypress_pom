@@ -12,4 +12,10 @@ describe('Gestión de tareas con POM', () => {
     todoPage.addTodo(taskName);
     todoPage.validateTodoExists(taskName);
   }); 
+  it('Debe permitir borrar una tarea', () => {
+    const taskName = 'Eliminar esta tarea';
+    todoPage.addTodo(taskName);
+    todoPage.deleteTodo(taskName);
+    todoPage.elements.todoItems().should('not.exist');
+  });
 });
